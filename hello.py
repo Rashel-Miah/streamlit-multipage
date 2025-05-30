@@ -30,12 +30,21 @@ def intro():
         """        
     )
 
-    page_names_to_funcs = {
-        "-":"intro",
-        "Plotting Demo":"plotting_demo",
-        "Mapping Demo":"mapping_demo",
-        "DataFrame Demo":"data_frame_demo"
-    }
+def plotting_demo():
+    st.write("Plotting Demo")
 
-    demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
-    page_names_to_funcs(demo_name)
+def mapping_demo():
+    st.write("Mapping Demo")
+
+def data_frame_demo():
+    st.write("DataFrame Demo")
+
+page_names_to_funcs = {
+    "_":intro,
+    "Plotting Demo":plotting_demo,
+    "Mapping Demo":mapping_demo,
+    "DataFrame Demo":data_frame_demo
+}
+
+demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
+page_names_to_funcs[demo_name]()
